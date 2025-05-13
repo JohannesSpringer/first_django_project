@@ -1,5 +1,5 @@
 # Environment files
 /env
-
+*/__pycache__
 # Dummy data
 db.sqlite3
