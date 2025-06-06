@@ -7,6 +7,7 @@ from .views import (
 )
 
 urlpatterns = [
+    path("start/", start_page_view),
     path("", RedirectToGadgetView.as_view()),
     path("<int:gadget_id>", RedirectToGadgetView.as_view()),
     path("gadget/", GadgetView.as_view()),

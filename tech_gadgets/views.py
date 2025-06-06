@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse, HttpResponseNotFound, Http404
 import json
 from django.utils.text import slugify
@@ -13,7 +13,7 @@ from .dummy_data import gadgets
 
 
 def start_page_view(request):
-    return HttpResponse("Griaß de")
+    return render(request, "tech_gadgets/test.html")
 
 
 def single_gadget_int_view(request, gadget_id):
@@ -21,7 +21,7 @@ def single_gadget_int_view(request, gadget_id):
         new_slug = slugify(gadgets[gadget_id]["name"])
         new_url = reverse("gadget_slug_url", args=[new_slug])
         return redirect(new_url)
-    return HttpResponseNotFound("Not found")
+    return Http404()
 
 
 class RedirectToGadgetView(RedirectView):
