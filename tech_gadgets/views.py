@@ -13,7 +13,7 @@ from .dummy_data import gadgets
 
 
 def start_page_view(request):
-    return render(request, "tech_gadgets/test.html")
+    return render(request, "tech_gadgets/test.html", {"gadget_list": gadgets})
 
 
 def single_gadget_int_view(request, gadget_id):
